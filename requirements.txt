@@ -1,0 +1,38 @@
+# Memory System для AI-ассистента — зависимости
+# Python 3.11
+#
+# Установка в виртуальное окружение .env:
+#   python -m venv .env
+#   .\.env\Scripts\Activate.ps1
+#   python -m pip install --upgrade pip
+#   pip install -r requirements.txt
+#
+# torch берётся из индекса PyTorch в GPU-сборке (CUDA 12.8).
+# Проверено под эту машину: RTX 4050 Laptop (sm_89), драйвер 617.42 / CUDA UMD 13.4.
+# Колесо torch==2.9.1+cu128 ~2.5 ГБ, при установке скачивается один раз.
+#
+# Только CPU (если GPU не нужен) — замените на:
+#   --extra-index-url https://download.pytorch.org/whl/cpu
+#   torch==2.9.1+cpu
+
+--extra-index-url https://download.pytorch.org/whl/cu128
+
+# --- Модели / эмбеддинги ---
+torch==2.9.1+cu128
+sentence-transformers>=3.0
+transformers>=4.41
+numpy>=1.26,<3
+scikit-learn>=1.5          # версии <1.5 не работают с numpy 2.x
+
+# --- Данные и конфигурация ---
+pydantic>=2.6
+
+# --- CLI-демо ---
+typer>=0.12
+rich>=13.7
+# Генерация ответов (`chat.py answer`, `web_chat.py`) идёт через внешний
+# LLM-сервер (Ollama или llama.cpp) по HTTP, отдельных Python-зависимостей нет.
+
+# --- Разработка и тесты ---
+pytest>=8.0
+ruff>=0.5

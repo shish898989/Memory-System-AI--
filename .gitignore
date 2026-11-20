@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Локальные базы памяти
+memory.db
+demo_memory.db
+*.sqlite3
+
+# Веса локальной LLM и бинарники llama.cpp (качаются отдельно)
+models/
+bin/
+*.gguf
