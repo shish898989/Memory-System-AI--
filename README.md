@@ -264,4 +264,5 @@ python -m ruff format --check memory_system/ tests/ chat.py
 - Забывание — архивирование, а не удаление: восстановление возможно через
   `include_archived=True` и `fact_history`.
 #   M e m o r y - S y s t e m - A I - -  
+ #   M e m o r y - S y s t e m - A I - -  
  
